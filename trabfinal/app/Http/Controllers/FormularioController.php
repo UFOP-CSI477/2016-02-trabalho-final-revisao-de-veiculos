@@ -21,7 +21,7 @@ class FormularioController extends Controller
     public function create()
     {
       $servicos = Servico::all();
-      $veiculos = veiculo::where('id',auth()->user()->id)->get();
+      $veiculos = veiculo::where('user_id',auth()->user()->id)->get();
       if(empty($veiculos)){
         request()->session()->flash('danger', "Você ainda não possui nenhum veiculo cadastrado, volte para o menu inicial e adicione um veiculo");
       }
